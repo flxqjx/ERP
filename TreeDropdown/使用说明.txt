@@ -1,0 +1,45 @@
+1.测试
+用2008以上版本vs打开网站，浏览Default.aspx页面，或者更改web.config文件，用vs2005打开网站浏览Default.aspx页面。
+
+2.控件的使用
+1）拷贝UserControls、bin文件夹中dll到项目中，可直接使用拖放方式增加新控件，且在使用的页面中添加
+<link href="UserControls/treeddl.css" type="text/css" rel="stylesheet" />
+<script src="UserControls/treeddl.js" type="text/javascript"></script>
+
+最好，添加js函数
+<script type="text/javascript">
+     function GetTreeNodeValue(name,id,divname)//获取选中节点的text和value
+     {
+        //document.getElementById("parentid").value=id;
+        //document.getElementById("name1").value=name;
+        //document.getElementById("Button1").click();//若需要使用treenodeChange事件请隐藏该按钮，并在该按钮事件中写代码
+        //alert(name);
+        //alert(divname);
+        if(divname=="TreeDropDownList1")//当在同一页面使用多个控件时需该值进行判断
+        {
+            document.getElementById("Button1").click(); 
+        }
+     }
+    </script>
+
+2)控件的方法：
+在js函数GetTreeNodeValue(name,id)中可以获取到选中节点的text和value
+
+TreeDropDownList1.ChearNode();//清空所有节点;
+
+TreeDropDownList1.setvalue("所有sss", "0");//设置控件的初始值为“所有sss”,value为 0
+
+TreeDropDownList1.AddTreeNode(ref node0);//增加根节点
+
+TreeDropDownList1.AddChildNode(ref node0, ref node);//在父节点node0 下增加子节点
+
+TreeDropDownList1.Text //页面回发后获取控件的text 
+
+TreeDropDownList1.Value//页面回发后获取控件的Value
+
+注释：由于环境问题，没经过详细测试，欢迎大家斧正
+
+作者：飘散的烟圈
+QQ：77227885   
+    
+    
